@@ -1,47 +1,46 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+import LandingPageInfo from './components/landing/LandingPageInfo.vue'
+import LandingPageTitle from './components/landing/LandingPageTitle.vue'
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
-  </header>
-
   <main>
-    <TheWelcome />
+    <LandingPageTitle class="title"></LandingPageTitle>
+    <LandingPageInfo class="info"></LandingPageInfo>
+    <button>Get yours now!</button>
   </main>
 </template>
 
 <style scoped>
-header {
-  line-height: 1.5;
+main{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
+.title, .info{
+  width: 100vw;
+  height: 100vh;
 }
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
+button{
+  position: absolute;
+  border: 2px solid white;
+  background: radial-gradient(var(--base), black);
+  color: white;
+  border: 0px;
+  padding: 50px;
+  z-index: 2;
+  font-size: 30px;
+  border-radius: 50px;
+  border: 4px solid white;
+  cursor: pointer;
+  box-shadow: 0px 0px 0px 0px var(--base);
+  
+}
+button:hover{
+  transform: scale(1.5);
+  border-radius: 110px;
+  box-shadow: 0px 0px 1000px 10px var(--base);
 }
 </style>
