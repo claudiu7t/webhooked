@@ -26,7 +26,7 @@ main{
 button{
   position: absolute;
   border: 2px solid white;
-  background: radial-gradient(var(--base), black);
+  background: var(--black);
   color: white;
   border: 0px;
   padding: 50px;
@@ -35,12 +35,10 @@ button{
   border-radius: 50px;
   border: 4px solid white;
   cursor: pointer;
-  box-shadow: 0px 0px 0px 0px var(--base);
   
 }
 button:hover{
-  transform: scale(1.5);
-  border-radius: 110px;
-  box-shadow: 0px 0px 1000px 10px var(--base);
+  background: white;
+  color: var(--base);
 }
 </style>
