@@ -30,7 +30,7 @@ const { pause, resume, isActive } = useIntervalFn(() => {
 header{
   background: #B0B0B0;
   display: flex;
-  justify-content: center;
+  justify-content: end;
   align-items: center;
   box-shadow: 0px 0px 1000px 0px #2C365E;
   z-index: 1;
@@ -39,8 +39,10 @@ header{
   background: #9f9f9f;
   width: 50vw;
   display: flex;
-  justify-content: left;
+  justify-content: right;
   align-items: center;
+  right: 150px;
+  padding-right: 20px;
 }
 .name-part1{
   font-size: 60px;

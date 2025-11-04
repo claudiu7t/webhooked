@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import LandingPageInfo from './components/landing/LandingPageInfo.vue'
-import LandingPageTitle from './components/landing/LandingPageTitle.vue'
+import LandingPageInfo from '../components/landing/LandingPageInfo.vue'
+import LandingPageTitle from '../components/landing/LandingPageTitle.vue'
 </script>
 
 <template>
