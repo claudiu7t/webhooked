@@ -1,3 +1,6 @@
+mod db;
+mod schema;
+
 use axum::{
     routing::get,
     Router,
@@ -5,10 +8,10 @@ use axum::{
 
 #[tokio::main]
 async fn main() {
-    // build our application with a single route
-    let app = Router::new().route("/", get(|| async { "Hello, World!" }));
+    let db_connection = db::establish_connection();
 
-    // run our app with hyper, listening globally on port 3000
+    let app = Router::new().route("/", get(index)).with_state(db_connection);
+
     let listener = tokio::net::TcpListener::bind("0.0.0.0:3000").await.unwrap();
     axum::serve(listener, app).await.unwrap();
 }
