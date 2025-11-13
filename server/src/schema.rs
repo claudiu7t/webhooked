@@ -3,7 +3,7 @@
 diesel::table! {
     tunnels (id) {
         id -> Int4,
-        url -> Varchar,
-        create_at -> Nullable<Timestamp>,
+        tunnel_name -> Varchar,
+        created_at -> Nullable<Timestamp>,
     }
 }
