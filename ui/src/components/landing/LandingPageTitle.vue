@@ -1,41 +1,40 @@
 <script setup lang="ts">
-import { useIntervalFn } from '@vueuse/core'
-import { nanoid } from 'nanoid'
-import { ref } from 'vue'
+import { useIntervalFn } from "@vueuse/core";
+import { nanoid } from "nanoid";
+import { ref } from "vue";
 
 const webhooked_url = ref(nanoid(8));
 const { pause, resume, isActive } = useIntervalFn(() => {
   webhooked_url.value = nanoid(8);
 }, 1000);
-
 </script>
 
 <template>
-<header>
-  <div class="name">
-  <span class="dynamic-url">{{ webhooked_url }}.</span>
-  <span class="name-part1">Webhook</span><span class="name-part2">ed</span>
-  <span class="com">.com</span>
-  </div>
-</header>
+  <header>
+    <div class="name">
+      <span class="dynamic-url">{{ webhooked_url }}.</span>
+      <span class="name-part1">Webhook</span><span class="name-part2">ed</span>
+      <span class="com">.com</span>
+    </div>
+  </header>
 </template>
 
 <style scoped>
-.name{
+.name {
   font-size: 40px;
 }
-.dynamic-url{
+.dynamic-url {
   color: var(--base);
 }
-header{
-  background: #B0B0B0;
+header {
+  background: #b0b0b0;
   display: flex;
   justify-content: end;
   align-items: center;
-  box-shadow: 0px 0px 1000px 0px #2C365E;
+  box-shadow: 0px 0px 1000px 0px #2c365e;
   z-index: 1;
 }
-.name{
+.name {
   background: #9f9f9f;
   width: 50vw;
   display: flex;
@@ -44,24 +43,25 @@ header{
   right: 150px;
   padding-right: 20px;
 }
-.name-part1{
+.name-part1 {
   font-size: 60px;
 }
-.name-part2, .com{
+.name-part2,
+.com {
   top: 20px;
 }
-.name>span{
+.name > span {
   color: var(--base);
   font-weight: bold;
 }
-.dynamic-url{
+.dynamic-url {
   min-width: 200px;
   display: inline-flex;
   justify-content: right;
   top: -20px;
   font-family: monospace;
 }
-.static-url{
+.static-url {
   font-style: italic;
 }
 </style>

@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import LandingPageInfo from '../components/landing/LandingPageInfo.vue'
-import LandingPageTitle from '../components/landing/LandingPageTitle.vue'
+import LandingPageInfo from "../components/landing/LandingPageInfo.vue";
+import LandingPageTitle from "../components/landing/LandingPageTitle.vue";
 </script>
 
 <template>
@@ -12,18 +12,19 @@ import LandingPageTitle from '../components/landing/LandingPageTitle.vue'
 </template>
 
 <style scoped>
-main{
+main {
   width: 100vw;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.title, .info{
+.title,
+.info {
   width: 100vw;
   height: 100vh;
 }
-button{
+button {
   position: absolute;
   border: 2px solid white;
   background: var(--black);
@@ -35,9 +36,8 @@ button{
   border-radius: 50px;
   border: 4px solid white;
   cursor: pointer;
-  
 }
-button:hover{
+button:hover {
   background: white;
   color: var(--base);
 }

@@ -1,17 +1,13 @@
-<script setup>
-
-</script>
+<script setup></script>
 
 <template>
-<header>
-<contents>
-
-</contents>
-</header>
+  <header>
+    <contents> </contents>
+  </header>
 </template>
 
 <style scoped>
-header{
+header {
   background: black;
   display: flex;
   justify-content: center;

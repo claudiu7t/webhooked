@@ -14,5 +14,5 @@ pub fn establish_connection() -> DbPool {
     return Pool::builder()
         .test_on_check_out(true)
         .build(manager)
-        .expect("Could not build connection pool")
+        .expect("Could not build connection pool");
 }
