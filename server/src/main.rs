@@ -8,6 +8,8 @@ use diesel::prelude::*;
 use nanoid::nanoid;
 use serde::Serialize;
 
+use std::net::SocketAddr;
+
 #[derive(Queryable, Selectable, Serialize)]
 #[diesel(table_name = crate::schema::tunnels)]
 #[diesel(check_for_backend(diesel::pg::Pg))]
@@ -47,5 +49,11 @@ async fn main() {
         .fallback(request::request_handler);
 
     let listener = tokio::net::TcpListener::bind("0.0.0.0:3000").await.unwrap();
-    axum::serve(listener, app).await.unwrap();
+    // make_service_with_connect_info allows us to extract the source port later
+    axum::serve(
+        listener,
+        app.into_make_service_with_connect_info::<SocketAddr>(),
+    )
+    .await
+    .unwrap();
 }
