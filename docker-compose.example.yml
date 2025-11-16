@@ -13,10 +13,11 @@ services:
     build:
       context: ./server
       dockerfile: Dockerfile
-    ports:
-      - "3000:3000"
+    volumes:
+      - ./server:/app
     env_file:
       - .server.env
+    command: tail -f /dev/null # Keeps the container running indefinitely the server will be started manually from the container terminal (to be updated when going to prod)
   ui:
     build:
       context: ./ui
