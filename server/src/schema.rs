@@ -16,7 +16,7 @@ diesel::table! {
         path -> Text,
         headers -> Jsonb,
         remote_port -> Int2,
-        remote_ip -> Inet,
+        remote_ip -> Text,
         body -> Nullable<Bytea>,
         body_length -> Nullable<Int4>,
         arrived_at -> Nullable<Timestamptz>,

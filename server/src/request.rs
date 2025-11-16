@@ -5,7 +5,22 @@ use axum::{
     http::{Method, StatusCode, Uri},
     response::IntoResponse,
 };
+use diesel::prelude::*;
+use serde_json::Value;
 use std::net::SocketAddr;
+
+#[derive(Insertable)]
+#[diesel(table_name = crate::schema::webhook_requests)]
+struct NewWebhookRequest {
+    tunnel_id: i32,
+    method: String,
+    path: String,
+    headers: diesel_json::Json<http::HeaderMap>,
+    remote_port: i16,
+    remote_ip: String,
+    body: Option<Vec<u8>>,
+    body_length: Option<i32>,
+}
 
 pub async fn request_handler(
     method: Method,

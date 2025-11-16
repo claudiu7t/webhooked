@@ -196,6 +196,7 @@ dependencies = [
  "itoa",
  "pq-sys",
  "r2d2",
+ "serde_json",
 ]
 
 [[package]]
@@ -209,6 +210,17 @@ dependencies = [
  "proc-macro2",
  "quote",
  "syn",
+]
+
+[[package]]
+name = "diesel_json"
+version = "0.3.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "3b4e35cdca3d007ccca4cac79b2dd52469b74f7baf0cbdeac47bdcc7a31662e5"
+dependencies = [
+ "diesel",
+ "serde",
+ "serde_json",
 ]
 
 [[package]]
@@ -435,6 +447,12 @@ name = "ident_case"
 version = "1.0.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "b9e0384b61958566e926dc50660321d12159025e767c18e043daf26b70104c39"
+
+[[package]]
+name = "ipnetwork"
+version = "0.21.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "cf370abdafd54d13e54a620e8c3e1145f28e46cc9d704bc6d94414559df41763"
 
 [[package]]
 name = "itoa"
@@ -761,9 +779,12 @@ dependencies = [
  "axum",
  "chrono",
  "diesel",
+ "diesel_json",
  "dotenvy",
+ "ipnetwork",
  "nanoid",
  "serde",
+ "serde_json",
  "tokio",
 ]
 
