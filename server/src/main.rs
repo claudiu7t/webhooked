@@ -1,4 +1,5 @@
 mod db;
+mod request;
 mod schema;
 
 use axum::{Json, Router, extract::State, routing::get, routing::post};
@@ -42,7 +43,8 @@ async fn main() {
 
     let app = Router::new()
         .route("/api/tunnels/", post(make_tunnel))
-        .with_state(db_connection);
+        .with_state(db_connection)
+        .fallback(request::request_handler);
 
     let listener = tokio::net::TcpListener::bind("0.0.0.0:3000").await.unwrap();
     axum::serve(listener, app).await.unwrap();
