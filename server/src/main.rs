@@ -45,8 +45,8 @@ async fn main() {
 
     let app = Router::new()
         .route("/api/tunnels/", post(make_tunnel))
-        .with_state(db_connection)
-        .fallback(request::request_handler);
+        .fallback(request::request_handler)
+        .with_state(db_connection);
 
     let listener = tokio::net::TcpListener::bind("0.0.0.0:3000").await.unwrap();
     // make_service_with_connect_info allows us to extract the source port later
