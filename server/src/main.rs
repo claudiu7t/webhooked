@@ -27,7 +27,7 @@ struct NewTunnel {
 
 #[axum::debug_handler]
 async fn make_tunnel(State(db_conn): State<db::DbPool>) -> Json<Tunnel> {
-    let uuid = nanoid!(8);
+    let uuid = nanoid!(8).to_lowercase();
     let mut conn = db_conn.get().expect("Couldn't get db connection");
 
     let new_tunnel = NewTunnel { tunnel_name: uuid };
