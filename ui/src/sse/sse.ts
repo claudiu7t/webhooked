@@ -19,7 +19,7 @@ export function useSSE(tunnelName: string) {
   let eventSource: EventSource | null = null;
 
   const connect = () => {
-    const url = "http://manage.localhost/api/tunnels/${tunnelName}/sse";
+    const url = `http://manage.localhost/api/tunnels/${tunnelName}/sse`;
     eventSource = new EventSource(url);
 
     eventSource.onopen = () => {
@@ -49,5 +49,6 @@ export function useSSE(tunnelName: string) {
     events,
     isConnected,
     error,
+    connect,
   };
 }
