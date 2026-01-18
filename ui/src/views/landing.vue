@@ -1,13 +1,31 @@
 <script setup lang="ts">
 import LandingPageInfo from "../components/landing/LandingPageInfo.vue";
 import LandingPageTitle from "../components/landing/LandingPageTitle.vue";
+
+const getTunnel = () => {
+  fetch("http://manage.localhost/api/tunnels/", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      let tunnel_name = data.tunnel_name;
+      console.log(tunnel_name);
+    })
+    .catch((error) => {
+      console.error(error);
+      alert("Error creating tunnel, please try again.");
+    });
+};
 </script>
 
 <template>
   <main>
     <LandingPageTitle class="title"></LandingPageTitle>
     <LandingPageInfo class="info"></LandingPageInfo>
-    <button>Get yours now!</button>
+    <button @click="getTunnel">Get yours now!</button>
   </main>
 </template>
 
