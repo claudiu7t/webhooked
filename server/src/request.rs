@@ -65,7 +65,7 @@ pub async fn request_handler(
     let subdomain = subdomain.to_lowercase();
 
     let tunnel_id = tunnels
-        .filter(tunnel_name.eq(subdomain))
+        .filter(tunnel_name.eq(&subdomain))
         .select(crate::schema::tunnels::id)
         .first::<i32>(&mut conn)
         .optional()
@@ -119,7 +119,7 @@ pub async fn request_handler(
     };
 
     let webhook_event = WebhookEventData {
-        tunnel_id: tunnel_id,
+        tunnel_name: subdomain,
         method: method,
         path: path_and_query,
         headers: header_json,
