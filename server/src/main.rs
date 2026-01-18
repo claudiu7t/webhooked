@@ -2,7 +2,7 @@ mod db;
 mod request;
 mod schema;
 
-use axum::{Json, Router, extract::State, routing::get, routing::post};
+use axum::{Json, Router, extract::State, routing::post};
 
 use diesel::prelude::*;
 use nanoid::nanoid;
