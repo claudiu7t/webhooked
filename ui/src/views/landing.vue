@@ -1,6 +1,9 @@
 <script setup lang="ts">
+import { useRouter } from "vue-router";
 import LandingPageInfo from "../components/landing/LandingPageInfo.vue";
 import LandingPageTitle from "../components/landing/LandingPageTitle.vue";
+
+const router = useRouter();
 
 const getTunnel = () => {
   fetch("http://manage.localhost/api/tunnels/", {
@@ -12,7 +15,7 @@ const getTunnel = () => {
     .then((response) => response.json())
     .then((data) => {
       let tunnel_name = data.tunnel_name;
-      console.log(tunnel_name);
+      router.push(`/tunnel/${tunnel_name}`);
     })
     .catch((error) => {
       console.error(error);
