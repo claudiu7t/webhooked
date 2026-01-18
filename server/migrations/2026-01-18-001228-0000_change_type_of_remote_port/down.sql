@@ -1,0 +1,1 @@
+ALTER TABLE webhook_requests ALTER COLUMN remote_port TYPE SMALLINT;
