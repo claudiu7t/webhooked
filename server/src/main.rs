@@ -4,7 +4,7 @@ mod request;
 mod schema;
 mod sse;
 
-use axum::{Json, Router, extract::State, routing::post};
+use axum::{Json, Router, extract::State, routing::get, routing::post};
 
 use diesel::prelude::*;
 use nanoid::nanoid;
@@ -53,6 +53,7 @@ async fn main() {
 
     let app = Router::new()
         .route("/api/tunnels/", post(make_tunnel))
+        .route("/api/tunnels/{tunnel_name}/sse", get(sse::sse_handler))
         .fallback(request::request_handler)
         .with_state(app_state);
 
